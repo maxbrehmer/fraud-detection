@@ -1,0 +1,167 @@
+{
+  "config": {
+    "rows": 40000,
+    "seed": 42,
+    "review_budget": 0.02
+  },
+  "data_sha256": "5c97ace453abb6b58a8b6567a8d07efc0f8687034f03d64913869cba8c731297",
+  "selected_model": "Boosted trees",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0"
+  },
+  "splits": {
+    "train": {
+      "rows": 24000,
+      "fraud_count": 293,
+      "fraud_rate": 0.012208333333333333,
+      "start": "2025-01-01T00:04:44.755395383",
+      "end": "2025-03-14T09:41:57.446809207"
+    },
+    "validation": {
+      "rows": 8000,
+      "fraud_count": 114,
+      "fraud_rate": 0.01425,
+      "start": "2025-03-14T09:45:18.955751784",
+      "end": "2025-04-08T19:40:35.503550708"
+    },
+    "test": {
+      "rows": 8000,
+      "fraud_count": 139,
+      "fraud_rate": 0.017375,
+      "start": "2025-04-08T19:41:19.463433268",
+      "end": "2025-04-30T23:58:55.026792267"
+    }
+  },
+  "models": {
+    "Logistic regression": {
+      "validation": {
+        "average_precision": 0.1623731792785718,
+        "roc_auc": 0.83511864240871,
+        "precision": 0.2,
+        "recall": 0.2807017543859649,
+        "f1": 0.23357664233576642,
+        "alert_rate": 0.02,
+        "threshold": 0.05732634064465104,
+        "tn": 7758,
+        "fp": 128,
+        "fn": 82,
+        "tp": 32
+      },
+      "test": {
+        "average_precision": 0.14007117995365703,
+        "roc_auc": 0.8067099303638122,
+        "precision": 0.16554054054054054,
+        "recall": 0.35251798561151076,
+        "f1": 0.22528735632183908,
+        "alert_rate": 0.037,
+        "threshold": 0.05732634064465104,
+        "tn": 7614,
+        "fp": 247,
+        "fn": 90,
+        "tp": 49
+      }
+    },
+    "Boosted trees": {
+      "validation": {
+        "average_precision": 0.17930391658893705,
+        "roc_auc": 0.863251998878759,
+        "precision": 0.2125,
+        "recall": 0.2982456140350877,
+        "f1": 0.24817518248175183,
+        "alert_rate": 0.02,
+        "threshold": 0.07865038512193957,
+        "tn": 7760,
+        "fp": 126,
+        "fn": 80,
+        "tp": 34
+      },
+      "test": {
+        "average_precision": 0.1575657104109747,
+        "roc_auc": 0.8343520832742278,
+        "precision": 0.17843866171003717,
+        "recall": 0.34532374100719426,
+        "f1": 0.23529411764705882,
+        "alert_rate": 0.033625,
+        "threshold": 0.07865038512193957,
+        "tn": 7640,
+        "fp": 221,
+        "fn": 91,
+        "tp": 48
+      }
+    }
+  },
+  "test_bootstrap_95_percent": {
+    "average_precision": [
+      0.11143720001827176,
+      0.22159353313548966
+    ],
+    "precision": [
+      0.12927440966424872,
+      0.22922444222444227
+    ],
+    "recall": [
+      0.27343489583333336,
+      0.420636288998358
+    ]
+  },
+  "baseline": {
+    "no_alerts_accuracy": 0.982625,
+    "no_alerts_recall": 0.0,
+    "random_ranking_expected_ap": 0.017375
+  },
+  "importance": [
+    {
+      "feature": "amount",
+      "mean_ap_drop": 0.013534179595567537,
+      "std_ap_drop": 0.006991241943283246
+    },
+    {
+      "feature": "amount_to_historical_mean",
+      "mean_ap_drop": 0.1165652539316838,
+      "std_ap_drop": 0.005815909136542026
+    },
+    {
+      "feature": "hour",
+      "mean_ap_drop": 0.03525619245117238,
+      "std_ap_drop": 0.006644645367807791
+    },
+    {
+      "feature": "account_age_days",
+      "mean_ap_drop": 0.0037195835716618718,
+      "std_ap_drop": 0.010369008083829722
+    },
+    {
+      "feature": "transactions_last_hour",
+      "mean_ap_drop": 0.053086817539175365,
+      "std_ap_drop": 0.014177895527555403
+    },
+    {
+      "feature": "distance_from_home_km",
+      "mean_ap_drop": 0.08799497030626316,
+      "std_ap_drop": 0.013096911140912628
+    },
+    {
+      "feature": "new_device",
+      "mean_ap_drop": 0.09248798265944172,
+      "std_ap_drop": 0.01590307809153793
+    },
+    {
+      "feature": "foreign_transaction",
+      "mean_ap_drop": 0.0,
+      "std_ap_drop": 0.0
+    },
+    {
+      "feature": "merchant_category",
+      "mean_ap_drop": 0.025104743300670924,
+      "std_ap_drop": 0.0077703883701929375
+    },
+    {
+      "feature": "channel",
+      "mean_ap_drop": -0.0018866391807903838,
+      "std_ap_drop": 0.009587689356842904
+    }
+  ]
+}
